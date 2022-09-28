@@ -6,7 +6,7 @@ using UnityEngine;
 public class PplayerMovement : MonoBehaviour
 {
     //public static Action<string> PlayerCollectsCoin = delegate { };
-
+    private int trial;
     //Private Accessors
     private Animator animator;
     private Rigidbody rgbody;

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class PplayerMovement : MonoBehaviour
 {
-    //public static Action<string> PlayerCollectsCoin = delegate { };
-    private int trial;
+    
     //Private Accessors
     private Animator animator;
     private Rigidbody rgbody;
@@ -19,8 +18,7 @@ public class PplayerMovement : MonoBehaviour
     private Touch _touch;
     private bool _firstTouch = false;
 
-    //private string waterOrbsScore = null;
-    //public TextMesh Text = null;
+    private float winNumber = 13.0f;
 
 
     //Public Accessors
@@ -34,7 +32,6 @@ public class PplayerMovement : MonoBehaviour
     public GameObject endScreen; //For gameover & restart button to show
     public int points = 0; //for Orbs collection points
 
-    private float winNumber = 13.0f;
 
 
 
@@ -59,7 +56,6 @@ public class PplayerMovement : MonoBehaviour
 
             if (myTouch.phase == TouchPhase.Moved)
             {
-                // transform.position = new Vector3(transform.position.x + myTouch.deltaPosition.x * turnSpeed, transform.position.y, transform.position.z);
                 limit = new Vector3(transform.position.x + myTouch.deltaPosition.x * turnSpeed, transform.position.y, transform.position.z);
                 Debug.Log(limit.x);
                 if (limit.x >= -24.98 && limit.x <= -16.82) // Tells the maximum cordinates on x axis the palyer should go when going both left and right
@@ -99,26 +95,9 @@ public class PplayerMovement : MonoBehaviour
     private void OnGUI()
 
     {
-        //if (gameObject.CompareTag("WaterOrbs"))
-        //{
+        
             GUI.Label(new Rect(10, 10, 100, 20), "SnowOrbs : " + points);
-        //string text = points.ToString();
-        //waterOrbsScore = text;
-        //T
-
-        //GUI.Label(new Rect(10, 10, 100, 20), "SnowOrbs : " + points);
-
-
-        //}
-
-
-
-        //if (gameObject.CompareTag("MonsterOrbs"))
-        //{
-        //    GUI.Label(new Rect(5, 5, 100, 20), "Monster Power Orbs : " + points);
-
-        //}
-
+       
     }
     void FixedUpdate()
     {
